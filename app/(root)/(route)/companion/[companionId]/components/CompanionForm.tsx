@@ -1,7 +1,7 @@
 "use client";
 
 import * as z from "zod";
-
+import axios from "axios";
 import { Category, Companion } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,6 +27,8 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Wand2 } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 interface CompanionFormProps {
   initialData: Companion | null;
@@ -40,7 +42,7 @@ const formSchema = z.object({
   description: z.string().min(1, {
     message: "Description is required",
   }),
-  instruction: z.string().min(200, {
+  instructions: z.string().min(200, {
     message: "Instruction requires at least 200 characters",
   }),
   seed: z.string().min(200, {
@@ -71,12 +73,14 @@ Elon: Always! But right now, I'm particularly excited about Neuralink. It has th
 `;
 
 const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
+  const router = useRouter();
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
       name: "",
       description: "",
-      instruction: "",
+      instructions: "",
       seed: "",
       src: "",
       categoryId: undefined,
@@ -86,7 +90,26 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    try {
+      if (initialData) {
+        // update
+        await axios.patch(`/api/companion/${initialData.id}`, data);
+      } else {
+        //create
+        await axios.post(`/api/companion`, data);
+      }
+      toast({
+        description: "Success... Companion saved",
+      });
+      router.refresh();
+      router.push("/");
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        description: "Something went wrong",
+      });
+      console.error(error, "something went wrong");
+    }
   };
 
   return (
@@ -207,7 +230,7 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
             <Separator className="bg-primary/10" />
           </div>
           <FormField
-            name="instruction"
+            name="instructions"
             control={form.control}
             render={({ field }) => (
               <FormItem className="col-span-2 md:col-span-1">
@@ -217,7 +240,7 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
                     className="bg-background resize-none"
                     rows={7}
                     disabled={isLoading}
-                    placeholder={`Write a brief instruction \n\nExample: \n${PREAMBLE}`}
+                    placeholder={`Write a brief instructions \n\nExample: \n${PREAMBLE}`}
                     {...field}
                   />
                 </FormControl>
