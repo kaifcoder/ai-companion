@@ -1,34 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Companion
 
-## Getting Started
+  
+<img src="https://github.com/kaifcoder/ai-companion/assets/57701861/46b3c7d7-90db-48af-af51-1867ffe89ad1" height="60" width="60"/> <p>AI Companion is a web app that lets you chat with an AI assistant which is created by you.<p>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Chat with an AI assistant that can understand and communicate fluently.
+- Ask questions, request tasks, or just have a casual conversation.
+- Get informative, visual, logical, and actionable responses from the AI assistant.
+- Explore different types of content that the AI assistant can generate, such as poems, stories, code, essays, songs, celebrity parodies, and more
+- supports dark and light theme.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![image](https://github.com/kaifcoder/ai-companion/assets/57701861/cdad55b8-42c7-4429-9344-be91b515df11)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## How to use
 
-## Learn More
+- Visit https://ai-companion-kaifcoder.vercel.app/ on your browser
+- Login or Signup with your github or google account
+- choose any companion or upgrade your account to pro to create your own
+- Type your message in the chat box and press enter or click on the send button
+- Wait for the AI assistant to reply
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Disclaimer
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+AI Companion is a prototype web app that uses OpenAI's API & Replicate API to power the AI assistant. The app is not affiliated with OpenAI or Microsoft. The app is for demonstration and entertainment purposes only and does not guarantee the accuracy, quality, or suitability of the responses. The app may not work properly on some devices or browsers. The app may stop working at any time due to API limitations or other reasons. Use the app at your own risk and discretion.
 
-## Deploy on Vercel
+## Feedback
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have any feedback, suggestions, or issues with the app, please contact me at kaifmohd2014@gmail.com. I would love to hear from you and improve the app. Thank you for using AI Companion! 😊
