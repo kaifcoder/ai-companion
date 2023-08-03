@@ -4,7 +4,13 @@ import { cn } from "@/lib/utils";
 import { Home, Plus, Settings } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
-const Sidebar = () => {
+import { useProModal } from "@/hooks/use-pro-modal";
+
+interface SidebarProps {
+  isPro: boolean;
+}
+
+const Sidebar = ({ isPro }: SidebarProps) => {
   const pathName = usePathname();
   const router = useRouter();
   const routes = [
@@ -28,8 +34,12 @@ const Sidebar = () => {
     },
   ];
 
+  const proModal = useProModal();
+
   const onNavigate = (href: string, pro: boolean) => {
-    //TODO: Add pro check
+    if (pro && !isPro) {
+      return proModal.onOpen();
+    }
     return router.push(href);
   };
 
