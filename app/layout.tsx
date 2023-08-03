@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Companion AI",
   description:
     "Companion AI is a web app that lets you create and chat with your own AI friend. You can choose from different personalities, interests, and styles for your companion. You can also teach them new things and share your experiences with them. Companion AI is built with Next.js, a React framework that enables fast and easy web development. With Companion AI, you can have a fun and engaging conversation with an AI that learns from you and adapts to your preferences.",
+  icons: ["https://th.bing.com/th/id/OIG.qG_zf3Eq6uSYvEZUEAX2?pid=ImgGn"],
   openGraph: {
     images: ["https://th.bing.com/th/id/OIG.qG_zf3Eq6uSYvEZUEAX2?pid=ImgGn"],
     url: "https://ai-companion-kaifcoder.vercel.app/",
