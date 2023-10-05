@@ -13,6 +13,8 @@
 - supports dark and light theme.
 
 ![image](https://github.com/kaifcoder/ai-companion/assets/57701861/cdad55b8-42c7-4429-9344-be91b515df11)
+<img width="816" alt="image" src="https://github.com/kaifcoder/ai-companion/assets/57701861/9e7a8a05-87cf-4cf5-a00d-10ea0d99b597">
+
 
 ## How to use
 
